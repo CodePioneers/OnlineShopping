@@ -1,5 +1,31 @@
 # OnlineShopping
 
+Data Binding
+-------
+
+for ngmodel
+
+add formsModule in appmodule.ts as below
+FormsModule->under imports and 
+import
+import { FormsModule } from '@angular/forms';
+so that it activates ngmodel directive.
+
+
+Routing
+--------
+For routing to enable we have to we have to add the component {path:'welcome', component: WelcomeComponent} like this app-routing.module
+
+
+
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 ## Development server
