@@ -1,10 +1,14 @@
 # OnlineShopping
 
-Data Binding
+1)Data Binding
 -------
+we used below:
+interpolation->{{}}
+ngmodel ->[(ngmode)]
+Event binding for button using click and calling a method form ts file.
 
 for ngmodel
-
+-----
 add formsModule in appmodule.ts as below
 FormsModule->under imports and 
 import
@@ -12,9 +16,15 @@ import { FormsModule } from '@angular/forms';
 so that it activates ngmodel directive.
 
 
-Routing
+2)Routing
 --------
-For routing to enable we have to we have to add the component {path:'welcome', component: WelcomeComponent} like this app-routing.module
+.For routing to enable we have to we have to add the component {path:'welcome', component: WelcomeComponent} like this app-routing.module
+.get the routing object though DI in the constructor
+.Using this object implement the navigation as 
+
+this.router.navigate(['welcome'])
+
+
 
 
 
