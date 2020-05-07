@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Observable } from 'rxjs/internal/Observable';
 /* import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators'; */
@@ -7,12 +9,21 @@ import { map } from 'rxjs/operators'; */
   providedIn: 'root'
 })
 export class AuthService {
+  private currentUserSubject: BehaviorSubject<string>;
+    public currentUser: Observable<string>;
 
   currentuser : string
-  constructor() { }
+  constructor() { 
+    this.currentUserSubject = new BehaviorSubject<string>(localStorage.getItem('currentUser'));
+        this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): string {
+    return this.currentUserSubject.value;
+}
 
   login(username: string, password: string) {
-    this.currentuser = username
+    this.currentUserSubject.next(username)
     if(username === 'Pioneers'){
     localStorage.setItem('currentUser', username+password);
     }
