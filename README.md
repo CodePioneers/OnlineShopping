@@ -26,6 +26,15 @@ this.router.navigate(['welcome'])
 
 
 
+3)to pass element to another apge
+--------------
+Using activated route
+1)value has to to be passed in the router.navigation method in the page from which the value will be passed to other page, here it is login page
+2)the page has to be mentioned in the app- routing module mentioning the parameter.
+3)in the welcome page we have to inject the object of activated route in constructor and use it to get the value as route.snapshot.params('name'), use s
+
+
+
 
 
 
