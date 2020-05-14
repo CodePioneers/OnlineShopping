@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WelcomeDataService } from '../service/data/welcome-data.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
+
 export class WelcomeComponent implements OnInit {
   private username:String
-  private namefromresponse:String;
-  private pwdmessagefromresponse:String;
+ 
+
+ 
 
   constructor(private route:ActivatedRoute,private service:WelcomeDataService) { }
 
@@ -20,17 +23,16 @@ export class WelcomeComponent implements OnInit {
 
   handlewelcome(){
     console.log("handle welcome called");
-    //console.log(this.service.getDetailsService());
-    this.service.getDetailsService().subscribe(Response=>Response,error=>"error occurred");
-  
-      //this.handlesuccessfullresponse(Response));
+    
+    this.service.getDetailsService().subscribe(Response=>console.log(Response));
+  console.log("pwdmessagefromresponse");
+      
     
   }
   
-//handlesuccessfullresponse(response){
- // console.log(this.namefromresponse=response.name);
+
  
 
 }
 
-}
+

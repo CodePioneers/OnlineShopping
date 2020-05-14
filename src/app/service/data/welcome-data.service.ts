@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-export class message{
-  constructor(public name:String, public pwdmessage:String){}
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,8 @@ export class WelcomeDataService {
 
   constructor(public http:HttpClient) { }
 
-  getDetailsService(){
-    return this.http.get<message>('http://localhost:8080/Hello/path-variable/prasanna');
+  getDetailsService():Observable<any>{
+    return this.http.get('http://localhost:8080/Hello/path-variable/prasanna');
     //console.log("getdetailsservice executed")
   }
 }
