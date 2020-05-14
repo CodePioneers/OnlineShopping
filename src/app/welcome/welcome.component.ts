@@ -21,18 +21,17 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.username=this.route.snapshot.params['name']
-    //this.service.retriveProducts().subscribe(Response=>console.log(Response));
-    
+    this.service.retriveProducts().subscribe(Response=>this.successfulresponse(Response));
   }
 
-  handlewelcome(){
-    console.log("handle welcome called");
+  // handlewelcome(){
+  //   console.log("handle welcome called");
     
-    this.service.retriveProducts().subscribe(Response=>this.successfulresponse(Response));
-  console.log("productdetails");
+  //   this.service.retriveProducts().subscribe(Response=>this.successfulresponse(Response));
+  // console.log("productdetails");
       
     
-  }
+  // }
 
   successfulresponse(response){
 console.log("webservice details:");
