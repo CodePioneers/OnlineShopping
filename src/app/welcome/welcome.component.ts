@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WelcomeDataService } from '../service/data/welcome-data.service';
+import { WelcomeDataService, Product } from '../service/data/welcome-data.service';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { ProductDataService } from '../service/data/product-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -11,6 +12,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 export class WelcomeComponent implements OnInit {
   private username:String
+ products:Product[];
  
 
  
@@ -19,15 +21,22 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.username=this.route.snapshot.params['name']
+    //this.service.retriveProducts().subscribe(Response=>console.log(Response));
+    
   }
 
   handlewelcome(){
     console.log("handle welcome called");
     
-    this.service.getDetailsService().subscribe(Response=>console.log(Response));
-  console.log("pwdmessagefromresponse");
+    this.service.retriveProducts().subscribe(Response=>this.successfulresponse(Response));
+  console.log("productdetails");
       
     
+  }
+
+  successfulresponse(response){
+console.log("webservice details:");
+    console.log(this.products=response);
   }
   
 

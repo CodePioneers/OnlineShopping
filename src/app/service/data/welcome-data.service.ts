@@ -2,6 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export class Product{
+  constructor(public name:String,public price:String){}
+
+
+}
+// export class ResponseData{
+//   constructor(public responsename:String,public responsePrice:String){}
+// }
 
 
 @Injectable({
@@ -11,8 +19,12 @@ export class WelcomeDataService {
 
   constructor(public http:HttpClient) { }
 
-  getDetailsService():Observable<any>{
-    return this.http.get('http://localhost:8080/Hello/path-variable/prasanna');
+  
+
+    
+
+    retriveProducts(){
+    return this.http.get<Product[]>('http://localhost:8080/getProducts');
     //console.log("getdetailsservice executed")
   }
 }

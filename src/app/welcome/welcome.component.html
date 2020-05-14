@@ -1,2 +1,17 @@
-Hi!!{{username}} Welcome to Online Shopping
+Welcome!!{{username}} Welcome to Online Shopping.Here are the products
 <button (click)="handlewelcome()">getproducts</button>
+<table border="1">
+    <caption>Products</caption>
+    <thead>
+      <tr>
+  <th>Product Name</th>
+  <th>Product Price</th>
+  </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      </tr>
+    </tbody>
+  </table>
